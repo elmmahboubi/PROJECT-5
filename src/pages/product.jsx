@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { getProductBySlug } from '../api/products';
-import { ChevronLeft, ChevronRight, ShoppingCart, ChevronDown, ChevronUp, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ShoppingCart, ChevronDown, ChevronUp, X, MapPin, Truck, DollarSign, RefreshCw } from 'lucide-react';
 
 const ProductPage = () => {
   const { slug } = useParams();
@@ -12,6 +12,22 @@ const ProductPage = () => {
   const [activeImage, setActiveImage] = useState(0);
   const [showFAQ, setShowFAQ] = useState(false);
   const [showZoom, setShowZoom] = useState(false);
+
+  // Calculate delivery dates (5-8 days from today)
+  const getDeliveryDates = () => {
+    const today = new Date();
+    const day1 = new Date(today);
+    day1.setDate(today.getDate() + 5);
+    const day2 = new Date(today);
+    day2.setDate(today.getDate() + 8);
+    
+    const formatDate = (date) => {
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return `${months[date.getMonth()]} ${date.getDate()}`;
+    };
+
+    return `${formatDate(day1)}-${formatDate(day2)}`;
+  };
   
   useEffect(() => {
     const loadProduct = async () => {
@@ -119,6 +135,41 @@ const ProductPage = () => {
               <div className="mt-2 text-gray-600">{condition}</div>
               <div className="mt-4 text-4xl font-bold text-gray-900">
                 ${price.toLocaleString()}
+              </div>
+              
+              {/* Shipping Information */}
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="flex items-start p-4 bg-gray-50 rounded-lg">
+                  <MapPin className="h-6 w-6 text-[#0046be] mt-1" />
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-900">Ships from:</p>
+                    <p className="text-sm text-gray-600">United States</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start p-4 bg-gray-50 rounded-lg">
+                  <Truck className="h-6 w-6 text-[#0046be] mt-1" />
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-900">Order today to get by:</p>
+                    <p className="text-sm text-gray-600">{getDeliveryDates()}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start p-4 bg-gray-50 rounded-lg">
+                  <DollarSign className="h-6 w-6 text-[#0046be] mt-1" />
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-900">Cost to ship:</p>
+                    <p className="text-sm text-gray-600">FREE</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start p-4 bg-gray-50 rounded-lg">
+                  <RefreshCw className="h-6 w-6 text-[#0046be] mt-1" />
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-900">Returns:</p>
+                    <p className="text-sm text-gray-600">Not Accepted</p>
+                  </div>
+                </div>
               </div>
               
               <div className="mt-6">
