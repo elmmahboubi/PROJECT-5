@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ShoppingCart, Menu, X, Search, User } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ShoppingCart, Menu, X, Search } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/?search=${encodeURIComponent(searchQuery.trim())}`);
+      setIsSearchOpen(false);
+      setSearchQuery('');
+    }
+  };
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -31,14 +42,11 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <button 
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="text-[#313a4b] hover:text-[#ff6a00]"
+              className="text-[#313a4b] hover:text-[#ff6a00] transition-colors duration-300"
             >
               <Search className="h-5 w-5" />
             </button>
-            <Link to="/account" className="text-[#313a4b] hover:text-[#ff6a00]">
-              <User className="h-5 w-5" />
-            </Link>
-            <Link to="/cart" className="relative text-[#313a4b] hover:text-[#ff6a00]">
+            <Link to="/cart" className="relative text-[#313a4b] hover:text-[#ff6a00] transition-colors duration-300">
               <ShoppingCart className="h-5 w-5" />
               <span className="absolute -top-2 -right-2 bg-[#ff6a00] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                 0
@@ -57,13 +65,25 @@ const Header = () => {
 
         {/* Search Bar */}
         {isSearchOpen && (
-          <div className="mt-4 relative">
-            <input
-              type="text"
-              placeholder="Search for products..."
-              className="w-full p-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
-            />
-            <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+          <div className="absolute left-0 right-0 top-full bg-white shadow-lg p-4 border-t">
+            <form onSubmit={handleSearch} className="container mx-auto max-w-3xl">
+              <div className="relative">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search for products..."
+                  className="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff6a00] focus:border-transparent"
+                />
+                <Search className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+                <button
+                  type="submit"
+                  className="absolute right-2 top-2 bg-[#ff6a00] hover:bg-[#e65f00] text-white px-4 py-2 rounded-lg transition-colors duration-300"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
           </div>
         )}
 
@@ -77,10 +97,6 @@ const Header = () => {
               <Link to="/policy" className="text-[#313a4b] hover:text-[#ff6a00] font-medium">Policies</Link>
             </nav>
             <div className="mt-4 flex items-center space-x-6 pt-4 border-t border-gray-200">
-              <Link to="/account" className="text-[#313a4b] hover:text-[#ff6a00] flex items-center">
-                <User className="h-5 w-5 mr-2" />
-                <span>Account</span>
-              </Link>
               <Link to="/cart" className="text-[#313a4b] hover:text-[#ff6a00] flex items-center">
                 <ShoppingCart className="h-5 w-5 mr-2" />
                 <span>Cart (0)</span>
