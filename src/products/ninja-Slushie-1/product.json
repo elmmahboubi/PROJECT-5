@@ -5,12 +5,10 @@
   "rating": 4.9,
   "reviewCount": 42,
   "images": [
-    "src/products/ninja-Slushie-1/img1.jpg",
-    "src/products/ninja-Slushie-1/img2.jpg",
-    "src/products/ninja-Slushie-1/img3.jpg",
-    "src/products/ninja-Slushie-1/img4.jpg"
-    
-    
+    "/products/ninja-Slushie-1/img1.jpg",
+    "/products/ninja-Slushie-1/img2.jpg",
+    "/products/ninja-Slushie-1/img3.jpg",
+    "/products/ninja-Slushie-1/img4.jpg"
   ],
   "condition": "New",
   "category": "Cameras",
