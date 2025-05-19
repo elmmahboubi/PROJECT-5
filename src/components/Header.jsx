@@ -35,6 +35,7 @@ const Header = () => {
             <Link to="/" className="text-[#313a4b] hover:text-[#0046be] font-medium">Home</Link>
             <a href="#products" className="text-[#313a4b] hover:text-[#0046be] font-medium">Products</a>
             <a href="#featured" className="text-[#313a4b] hover:text-[#0046be] font-medium">Featured</a>
+            <Link to="/track" className="text-[#313a4b] hover:text-[#0046be] font-medium">Track Order</Link>
             <Link to="/policy" className="text-[#313a4b] hover:text-[#0046be] font-medium">Policies</Link>
           </nav>
 
@@ -94,6 +95,7 @@ const Header = () => {
               <Link to="/" className="text-[#313a4b] hover:text-[#0046be] font-medium">Home</Link>
               <a href="#products" className="text-[#313a4b] hover:text-[#0046be] font-medium">Products</a>
               <a href="#featured" className="text-[#313a4b] hover:text-[#0046be] font-medium">Featured</a>
+              <Link to="/track" className="text-[#313a4b] hover:text-[#0046be] font-medium">Track Order</Link>
               <Link to="/policy" className="text-[#313a4b] hover:text-[#0046be] font-medium">Policies</Link>
             </nav>
             <div className="mt-4 flex items-center space-x-6 pt-4 border-t border-gray-200">
