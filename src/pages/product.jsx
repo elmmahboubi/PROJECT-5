@@ -81,6 +81,45 @@ const ProductPage = () => {
   
   const { title, description, price, images, condition } = product;
 
+  const faqItems = [
+    {
+      question: "Are the items new or used?",
+      answer: "We offer both new and second-hand items. Product condition is clearly listed in the description (e.g., Brand New, Like New, Refurbished, or Used – Good Condition)."
+    },
+    {
+      question: "Do products come with a warranty?",
+      answer: "New items typically include a manufacturer warranty. For second-hand items, we offer a 30-day ShopHappy Guarantee for returns and exchanges, unless otherwise stated."
+    },
+    {
+      question: "Can I return a product if it doesn't meet my expectations?",
+      answer: "Yes! We offer 30-day hassle-free returns. The item must be in the same condition as received. Read our Return Policy for more details."
+    },
+    {
+      question: "How long does shipping take?",
+      answer: "Most orders ship within 5–8 business days. Delivery times vary by location, but you can expect your item within 5–8 business days on average."
+    },
+    {
+      question: "Is there free shipping?",
+      answer: "Yes, we offer free standard shipping on orders over $50. Express options are also available at checkout."
+    },
+    {
+      question: "Are your second-hand products tested?",
+      answer: "Absolutely. All second-hand electronics go through a multi-point inspection and are fully functional unless otherwise stated."
+    },
+    {
+      question: "Can I trust the product photos?",
+      answer: "Yes — what you see is what you get. Our photos show the actual product (or a very close representation for new items). We do not use stock images for used items."
+    },
+    {
+      question: "Is local pickup available?",
+      answer: "Currently, we are an online-only store, but we're working on introducing local pickup options in select cities soon."
+    },
+    {
+      question: "How do I contact support?",
+      answer: "You can reach us anytime at support@shophappy.us or call us at +1 (123) 456-7891. We're available 7 days a week."
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <Header />
@@ -199,7 +238,7 @@ const ProductPage = () => {
               <div className="mt-12 border-t pt-8">
                 <button
                   onClick={() => setShowFAQ(!showFAQ)}
-                  className="w-full flex items-center justify-between text-left text-[#0046be] hover:text-[#003494] transition-colors duration-300"
+                  className="w-full flex items-center justify-between text-left text-gray-900 hover:text-[#0046be] transition-colors duration-300"
                 >
                   <span className="text-xl font-medium">Frequently Asked Questions</span>
                   {showFAQ ? (
@@ -210,19 +249,13 @@ const ProductPage = () => {
                 </button>
                 
                 {showFAQ && (
-                  <div className="mt-4 space-y-4">
-                    <div>
-                      <h3 className="font-medium text-gray-900">Shipping Information</h3>
-                      <p className="mt-1 text-gray-600">Free shipping on orders over $50. Delivery within 3-5 business days.</p>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-gray-900">Return Policy</h3>
-                      <p className="mt-1 text-gray-600">30-day return policy for unused items in original packaging.</p>
-                    </div>
-                    <div>
-                      <h3 className="font-medium text-gray-900">Warranty</h3>
-                      <p className="mt-1 text-gray-600">All products come with a standard 90-day warranty unless otherwise specified.</p>
-                    </div>
+                  <div className="mt-6 space-y-6">
+                    {faqItems.map((item, index) => (
+                      <div key={index} className="border-b border-gray-100 pb-6 last:border-0">
+                        <h3 className="font-medium text-gray-900 mb-2">{item.question}</h3>
+                        <p className="text-gray-600">{item.answer}</p>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
