@@ -95,14 +95,14 @@ const ProductGrid = ({ products }) => {
                     placeholder="Min"
                     value={priceRange.min}
                     onChange={(e) => setPriceRange({ ...priceRange, min: e.target.value })}
-                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0046be]"
                   />
                   <input
                     type="number"
                     placeholder="Max"
                     value={priceRange.max}
                     onChange={(e) => setPriceRange({ ...priceRange, max: e.target.value })}
-                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0046be]"
                   />
                 </div>
               </div>
@@ -124,7 +124,7 @@ const ProductGrid = ({ products }) => {
                           );
                           setCurrentPage(1);
                         }}
-                        className="mr-2 text-[#ff6a00] focus:ring-[#ff6a00]"
+                        className="mr-2 text-[#0046be] focus:ring-[#0046be]"
                       />
                       {brand}
                     </label>
@@ -149,7 +149,7 @@ const ProductGrid = ({ products }) => {
                           );
                           setCurrentPage(1);
                         }}
-                        className="mr-2 text-[#ff6a00] focus:ring-[#ff6a00]"
+                        className="mr-2 text-[#0046be] focus:ring-[#0046be]"
                       />
                       {condition}
                     </label>
@@ -165,7 +165,7 @@ const ProductGrid = ({ products }) => {
                   setSelectedConditions([]);
                   setCurrentPage(1);
                 }}
-                className="w-full px-4 py-2 text-[#ff6a00] border border-[#ff6a00] rounded-lg hover:bg-[#fff5eb] transition-colors duration-300"
+                className="w-full px-4 py-2 text-[#0046be] border border-[#0046be] rounded-lg hover:bg-blue-50 transition-colors duration-300"
               >
                 Clear Filters
               </button>
@@ -200,7 +200,7 @@ const ProductGrid = ({ products }) => {
                       setSortBy(e.target.value);
                       setCurrentPage(1);
                     }}
-                    className="appearance-none px-4 py-2 pr-8 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                    className="appearance-none px-4 py-2 pr-8 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#0046be]"
                   >
                     <option value="featured">Featured</option>
                     <option value="price-low">Price: Low to High</option>
@@ -234,8 +234,8 @@ const ProductGrid = ({ products }) => {
                           onClick={() => handlePageChange(i + 1)}
                           className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
                             currentPage === i + 1
-                              ? 'bg-[#ff6a00] text-white'
-                              : 'bg-white text-gray-700 hover:bg-[#fff5eb] hover:text-[#ff6a00]'
+                              ? 'bg-[#0046be] text-white'
+                              : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-[#0046be]'
                           }`}
                         >
                           {i + 1}
