@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Award, Check } from 'lucide-react';
+import { ArrowRight, Star, Award } from 'lucide-react';
 
 const FeaturedProduct = ({ product }) => {
-  const { slug, title, description, price, rating, reviewCount, images, features } = product;
+  const { slug, title, description, price, rating, reviewCount, images } = product;
 
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -49,19 +49,6 @@ const FeaturedProduct = ({ product }) => {
             
             {/* Description */}
             <p className="mt-4 text-gray-600">{description}</p>
-            
-            {/* Features */}
-            <div className="mt-6">
-              <h4 className="font-medium text-gray-900 mb-2">Key Features:</h4>
-              <ul className="space-y-2">
-                {features && Array.isArray(features) ? features.slice(0, 4).map((feature, index) => (
-                  <li key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-[#ff6a00] mr-2 flex-shrink-0" />
-                    <span className="text-gray-600">{feature}</span>
-                  </li>
-                )) : null}
-              </ul>
-            </div>
           </div>
           
           {/* Actions */}
