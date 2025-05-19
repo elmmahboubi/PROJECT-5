@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, ThumbsUp, MessageSquare, CheckCircle2, X } from 'lucide-react';
+import { Star, ThumbsUp, CheckCircle2, X } from 'lucide-react';
 
 // Mock review data
 const reviewsData = [
@@ -12,7 +12,6 @@ const reviewsData = [
     title: 'Exceptional quality and performance',
     content: 'This camera exceeded all my expectations. The image quality is outstanding, and the autofocus is lightning fast. Battery life is impressive too - I can shoot all day on a single charge. Highly recommended for both professionals and enthusiasts.',
     helpful: 24,
-    replies: 2,
     verified: true,
     location: 'New York, USA',
     purchaseDate: '1 month ago'
@@ -26,7 +25,6 @@ const reviewsData = [
     title: 'Great camera with minor issues',
     content: 'The image quality and features are excellent for the price point. My only complaint is that the menu system takes some getting used to. Once you learn your way around, it\'s a powerful tool for photography. The low light performance is particularly impressive.',
     helpful: 15,
-    replies: 1,
     verified: true,
     location: 'London, UK',
     purchaseDate: '2 months ago'
@@ -40,7 +38,6 @@ const reviewsData = [
     title: 'Perfect for travel photography',
     content: 'I\'ve taken this camera on several trips now, and it\'s been the perfect companion. Lightweight yet durable, with excellent image stabilization for handheld shots. The connectivity features make it easy to transfer photos to my phone for quick sharing. Couldn\'t be happier with my purchase!',
     helpful: 32,
-    replies: 3,
     verified: true,
     location: 'Toronto, Canada',
     purchaseDate: '3 months ago'
@@ -59,6 +56,7 @@ const Reviews = ({ productSlug }) => {
     location: ''
   });
   const [showSuccess, setShowSuccess] = useState(false);
+  const [helpfulClicks, setHelpfulClicks] = useState({});
   
   const averageRating = 4.7;
   const totalReviews = reviewsData.length;
@@ -85,6 +83,13 @@ const Reviews = ({ productSlug }) => {
       email: '',
       location: ''
     });
+  };
+
+  const handleHelpfulClick = (reviewId) => {
+    setHelpfulClicks(prev => ({
+      ...prev,
+      [reviewId]: !prev[reviewId]
+    }));
   };
 
   return (
@@ -192,14 +197,13 @@ const Reviews = ({ productSlug }) => {
                 <h4 className="font-medium text-gray-900 mt-2">{review.title}</h4>
                 <p className="mt-2 text-gray-600">{review.content}</p>
 
-                <div className="mt-4 flex items-center gap-4">
-                  <button className="flex items-center text-gray-500 hover:text-[#0046be] transition-colors duration-300">
+                <div className="mt-4">
+                  <button 
+                    onClick={() => handleHelpfulClick(review.id)}
+                    className={`flex items-center ${helpfulClicks[review.id] ? 'text-[#0046be]' : 'text-gray-500 hover:text-[#0046be]'} transition-colors duration-300`}
+                  >
                     <ThumbsUp className="h-4 w-4 mr-1" />
-                    <span>Helpful ({review.helpful})</span>
-                  </button>
-                  <button className="flex items-center text-gray-500 hover:text-[#0046be] transition-colors duration-300">
-                    <MessageSquare className="h-4 w-4 mr-1" />
-                    <span>Reply ({review.replies})</span>
+                    <span>Helpful ({helpfulClicks[review.id] ? review.helpful + 1 : review.helpful})</span>
                   </button>
                 </div>
               </div>
@@ -216,7 +220,7 @@ const Reviews = ({ productSlug }) => {
               <h3 className="text-2xl font-bold text-gray-900">Write a Review</h3>
               <button 
                 onClick={() => setShowReviewForm(false)}
-                className="text-gray-500 hover:text-[#0046be] transition-colors duration-300"
+                className="text-gray-500 hover:text-[#0046be] transition-colors duration-200"
               >
                 <X className="h-6 w-6" />
               </button>
