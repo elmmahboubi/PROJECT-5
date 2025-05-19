@@ -31,7 +31,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 font-heading">
             <Link to="/" className="text-[#313a4b] hover:text-[#0046be] font-medium">Home</Link>
             <a href="#products" className="text-[#313a4b] hover:text-[#0046be] font-medium">Products</a>
             <a href="#featured" className="text-[#313a4b] hover:text-[#0046be] font-medium">Featured</a>
@@ -86,7 +86,7 @@ const Header = () => {
                 <Search className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
                 <button
                   type="submit"
-                  className="absolute right-2 top-2 bg-[#0046be] hover:bg-[#003494] text-white px-4 py-2 rounded-lg transition-colors duration-300"
+                  className="absolute right-2 top-2 bg-[#0046be] hover:bg-[#003494] text-white px-4 py-2 rounded-lg transition-colors duration-300 font-heading"
                 >
                   Search
                 </button>
@@ -98,7 +98,7 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 py-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-4 font-heading">
               <Link to="/" className="text-[#313a4b] hover:text-[#0046be] font-medium">Home</Link>
               <a href="#products" className="text-[#313a4b] hover:text-[#0046be] font-medium">Products</a>
               <a href="#featured" className="text-[#313a4b] hover:text-[#0046be] font-medium">Featured</a>
@@ -110,7 +110,7 @@ const Header = () => {
             <div className="mt-4 flex items-center space-x-6 pt-4 border-t border-gray-200">
               <Link to="/cart" className="text-[#313a4b] hover:text-[#0046be] flex items-center">
                 <ShoppingCart className="h-5 w-5 mr-2" />
-                <span>Cart (0)</span>
+                <span className="font-heading">Cart (0)</span>
               </Link>
             </div>
           </div>
@@ -120,4 +120,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;
