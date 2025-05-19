@@ -16,7 +16,10 @@ const ProductPage = () => {
     const loadProduct = async () => {
       try {
         const data = await getProductBySlug(slug);
-        setProduct(data);
+        if (data) {
+          console.log('Product loaded:', data); // Debug log
+          setProduct(data);
+        }
       } catch (error) {
         console.error('Error loading product:', error);
       } finally {
@@ -60,7 +63,7 @@ const ProductPage = () => {
             <div className="relative">
               <img 
                 src={images[activeImage]} 
-                alt={title}
+                alt={`${title} - Image ${activeImage + 1}`}
                 className="w-full h-[500px] object-cover rounded-lg"
               />
               {images.length > 1 && (
