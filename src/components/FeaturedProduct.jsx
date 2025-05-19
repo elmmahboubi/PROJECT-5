@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Star, Award } from 'lucide-react';
 
 const FeaturedProduct = ({ product }) => {
   const { slug, title, description, price, rating, reviewCount, images } = product;
+  const navigate = useNavigate();
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-6xl mx-auto">
       <div className="flex flex-col lg:flex-row">
         {/* Image Section */}
         <div className="lg:w-1/2 relative overflow-hidden">
@@ -19,7 +20,7 @@ const FeaturedProduct = ({ product }) => {
           <img 
             src={images[0]} 
             alt={title}
-            className="w-full h-full object-cover object-center lg:h-[500px]"
+            className="w-full h-[300px] lg:h-[400px] object-cover object-center"
           />
         </div>
         
@@ -48,12 +49,15 @@ const FeaturedProduct = ({ product }) => {
             </div>
             
             {/* Description */}
-            <p className="mt-4 text-gray-600">{description}</p>
+            <p className="mt-4 text-gray-600 line-clamp-3">{description}</p>
           </div>
           
           {/* Actions */}
           <div className="mt-8 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-            <button className="flex-1 bg-[#ff6a00] hover:bg-[#e65f00] text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
+            <button 
+              onClick={() => navigate(`/product/${slug}`)}
+              className="flex-1 bg-[#ff6a00] hover:bg-[#e65f00] text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300"
+            >
               Add to Cart
             </button>
             <Link 
