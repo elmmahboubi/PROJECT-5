@@ -36,14 +36,7 @@ const Header = () => {
             <a href="#products" className="text-[#313a4b] hover:text-[#0046be] font-medium">Products</a>
             <a href="#featured" className="text-[#313a4b] hover:text-[#0046be] font-medium">Featured</a>
             <Link to="/track" className="text-[#313a4b] hover:text-[#0046be] font-medium">Track Order</Link>
-            <div className="relative group">
-              <span className="text-[#313a4b] hover:text-[#0046be] font-medium cursor-pointer">Policies</span>
-              <div className="absolute hidden group-hover:block w-48 bg-white shadow-lg rounded-lg mt-2 py-2">
-                <Link to="/return-policy" className="block px-4 py-2 text-[#313a4b] hover:text-[#0046be] hover:bg-gray-50">Return Policy</Link>
-                <Link to="/privacy-policy" className="block px-4 py-2 text-[#313a4b] hover:text-[#0046be] hover:bg-gray-50">Privacy Policy</Link>
-                <Link to="/terms" className="block px-4 py-2 text-[#313a4b] hover:text-[#0046be] hover:bg-gray-50">Terms of Service</Link>
-              </div>
-            </div>
+            <Link to="/contact" className="text-[#313a4b] hover:text-[#0046be] font-medium">Contact Us</Link>
           </nav>
 
           {/* Desktop Actions */}
@@ -103,9 +96,7 @@ const Header = () => {
               <a href="#products" className="text-[#313a4b] hover:text-[#0046be] font-medium">Products</a>
               <a href="#featured" className="text-[#313a4b] hover:text-[#0046be] font-medium">Featured</a>
               <Link to="/track" className="text-[#313a4b] hover:text-[#0046be] font-medium">Track Order</Link>
-              <Link to="/return-policy" className="text-[#313a4b] hover:text-[#0046be] font-medium">Return Policy</Link>
-              <Link to="/privacy-policy" className="text-[#313a4b] hover:text-[#0046be] font-medium">Privacy Policy</Link>
-              <Link to="/terms" className="text-[#313a4b] hover:text-[#0046be] font-medium">Terms of Service</Link>
+              <Link to="/contact" className="text-[#313a4b] hover:text-[#0046be] font-medium">Contact Us</Link>
             </nav>
             <div className="mt-4 flex items-center space-x-6 pt-4 border-t border-gray-200">
               <Link to="/cart" className="text-[#313a4b] hover:text-[#0046be] flex items-center">

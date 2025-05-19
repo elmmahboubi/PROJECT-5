@@ -6,6 +6,7 @@ import PrivacyPolicyPage from './pages/privacy-policy';
 import TermsPage from './pages/terms';
 import ProductPage from './pages/product';
 import TrackPage from './pages/track';
+import ContactPage from './pages/contact';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/product/:slug" element={<ProductPage />} />
         <Route path="/track" element={<TrackPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       
       {/* WhatsApp Button */}
