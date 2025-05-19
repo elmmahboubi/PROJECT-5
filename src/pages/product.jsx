@@ -35,6 +35,45 @@ const ProductPage = () => {
         const data = await getProductBySlug(slug);
         if (data) {
           setProduct(data);
+          // Update page metadata
+          document.title = `${data.title} - CameraHub`;
+          const metaDescription = document.querySelector('meta[name="description"]');
+          if (metaDescription) {
+            metaDescription.setAttribute('content', data.description);
+          }
+          // Add Schema.org structured data
+          const schemaData = {
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name: data.title,
+            description: data.description,
+            image: data.images,
+            brand: {
+              '@type': 'Brand',
+              name: data.brand
+            },
+            offers: {
+              '@type': 'Offer',
+              price: data.price,
+              priceCurrency: 'USD',
+              itemCondition: `https://schema.org/${data.condition === 'New' ? 'NewCondition' : 'UsedCondition'}`,
+              availability: 'https://schema.org/InStock'
+            },
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: data.rating,
+              reviewCount: data.reviewCount
+            }
+          };
+          
+          const script = document.createElement('script');
+          script.type = 'application/ld+json';
+          script.text = JSON.stringify(schemaData);
+          document.head.appendChild(script);
+          
+          return () => {
+            document.head.removeChild(script);
+          };
         }
       } catch (error) {
         console.error('Error loading product:', error);
