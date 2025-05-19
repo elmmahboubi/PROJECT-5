@@ -123,15 +123,8 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p>&copy; 2025 Shop Happy. All rights reserved.</p>
-          <div className="mt-4 md:mt-0">
-            <img 
-              src="https://images.pexels.com/photos/6863332/pexels-photo-6863332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-              alt="Payment methods" 
-              className="h-8"
-            />
-          </div>
         </div>
       </div>
     </footer>
