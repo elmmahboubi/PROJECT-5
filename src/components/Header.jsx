@@ -63,13 +63,21 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-[#313a4b]"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            {/* Mobile Actions */}
+            <div className="md:hidden flex items-center space-x-4">
+              <Link to="/cart" className="relative text-[#313a4b] hover:text-[#0046be] transition-colors duration-300">
+                <ShoppingCart className="h-6 w-6" />
+                <span className="absolute -top-2 -right-2 bg-[#0046be] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  0
+                </span>
+              </Link>
+              <button 
+                className="text-[#313a4b]"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
 
           {/* Search Bar */}
@@ -106,12 +114,6 @@ const Header = () => {
                 <Link to="/track" className="text-[#313a4b] hover:text-[#0046be] font-medium">Track Order</Link>
                 <Link to="/contact" className="text-[#313a4b] hover:text-[#0046be] font-medium">Contact Us</Link>
               </nav>
-              <div className="mt-4 flex items-center space-x-6 pt-4 border-t border-gray-200">
-                <Link to="/cart" className="text-[#313a4b] hover:text-[#0046be] flex items-center">
-                  <ShoppingCart className="h-5 w-5 mr-2" />
-                  <span className="font-heading">Cart (0)</span>
-                </Link>
-              </div>
             </div>
           )}
         </div>
