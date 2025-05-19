@@ -100,6 +100,29 @@ const ProductPage = () => {
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-200 rounded-lg"></div>
               </div>
+
+              {/* Thumbnails */}
+              <div className="mt-4 flex justify-center space-x-2 overflow-x-auto py-2">
+                {images.map((image, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImage(idx)}
+                    className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden ${
+                      activeImage === idx ? 'ring-2 ring-[#0046be]' : 'ring-1 ring-gray-200'
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`${title} thumbnail ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    {activeImage === idx && (
+                      <div className="absolute inset-0 bg-white/10"></div>
+                    )}
+                  </button>
+                ))}
+              </div>
+
               {images.length > 1 && (
                 <>
                   <button
@@ -116,17 +139,6 @@ const ProductPage = () => {
                   </button>
                 </>
               )}
-              <div className="flex justify-center mt-4 space-x-2">
-                {images.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveImage(idx)}
-                    className={`w-2 h-2 rounded-full ${
-                      activeImage === idx ? 'bg-[#0046be]' : 'bg-gray-300'
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
             
             {/* Product Info - Scrollable */}
