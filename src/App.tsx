@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { WhatsApp } from 'lucide-react';
+import { Apple as WhatsApp } from 'lucide-react';
 
 // Eager load HomePage for better initial load performance
 import HomePage from './pages';
