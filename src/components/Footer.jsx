@@ -129,27 +129,27 @@ const Footer = () => {
               <img 
                 src="https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/images/visa-brandmark-blue-1960x622.png" 
                 alt="Visa" 
-                className="h-8"
+                className="h-8 brightness-0 invert"
               />
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/2052px-American_Express_logo_%282018%29.svg.png" 
                 alt="American Express" 
-                className="h-8 brightness-0 invert"
+                className="h-8"
               />
               <img 
                 src="https://brand.mastercard.com/content/dam/mccom/brandcenter/thumbnails/mastercard_vrt_rev_92px_2x.png" 
                 alt="Mastercard" 
-                className="h-8 brightness-0 invert"
+                className="h-8"
               />
               <img 
                 src="https://www.discover.com/company/images/newsroom/media-downloads/discover.png" 
                 alt="Discover" 
-                className="h-8 brightness-0 invert"
+                className="h-8"
               />
               <img 
                 src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" 
                 alt="PayPal" 
-                className="h-8 brightness-0 invert"
+                className="h-8"
               />
             </div>
             <p className="text-center">&copy; 2025 Shop Happy. All rights reserved.</p>
