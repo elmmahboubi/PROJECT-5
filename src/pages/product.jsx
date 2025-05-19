@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -58,30 +58,8 @@ const ProductPage = () => {
     };
   }, [showZoom]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-  
-  if (!product) {
-    return (
-      <div className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-grow flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h1>
-            <Link to="/" className="text-[#0046be] hover:text-[#003494]">
-              Back to Home
-            </Link>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-  
-  const { title, description, price, images, condition } = product;
-
-  const faqItems = [
+  // Memoize FAQ items to prevent unnecessary re-renders
+  const faqItems = useMemo(() => [
     {
       question: "Are the items new or used?",
       answer: "We offer both new and second-hand items. Product condition is clearly listed in the description (e.g., Brand New, Like New, Refurbished, or Used – Good Condition)."
@@ -118,7 +96,30 @@ const ProductPage = () => {
       question: "How do I contact support?",
       answer: "You can reach us anytime at support@shophappy.us or call us at +1 (123) 456-7891. We're available 7 days a week."
     }
-  ];
+  ], []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  
+  if (!product) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h1>
+            <Link to="/" className="text-[#0046be] hover:text-[#003494]">
+              Back to Home
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+  
+  const { title, description, price, images, condition } = product;
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
