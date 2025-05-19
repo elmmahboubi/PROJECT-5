@@ -77,17 +77,17 @@ const HomePage = () => {
         </section>
         
         {/* Newsletter Section */}
-        <section className="py-16 bg-[#ff6a00]">
+        <section className="py-16 bg-[#0046be]">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Stay Updated</h2>
-            <p className="text-orange-100 max-w-2xl mx-auto mb-8">
+            <p className="text-blue-100 max-w-2xl mx-auto mb-8">
               Subscribe to our newsletter to receive updates on new products, special offers, and photography tips.
             </p>
             <form className="max-w-md mx-auto flex">
               <input 
                 type="email" 
                 placeholder="Your email address" 
-                className="flex-1 px-4 py-3 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-300"
+                className="flex-1 px-4 py-3 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
               />
               <button 
                 type="submit"
