@@ -1,11 +1,8 @@
+/* Font loading optimization */
 @font-face {
   font-family: "Gotham";
-  src: url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.eot");
-  src: url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.eot?#iefix")format("embedded-opentype"),
-  url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.woff2")format("woff2"),
-  url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.woff")format("woff"),
-  url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.svg#Gotham")format("svg");
+  src: url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.woff2")format("woff2");
+  font-display: swap;
 }
 
 @tailwind base;
@@ -21,4 +18,14 @@
     font-family: 'Gotham', sans-serif;
     font-weight: bold;
   }
+}
+
+/* Add loading animation */
+.loading-spinner {
+  @apply animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#0046be];
+}
+
+/* Add image loading skeleton */
+.image-skeleton {
+  @apply bg-gray-200 animate-pulse rounded-lg;
 }
