@@ -123,8 +123,37 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p>&copy; 2025 Shop Happy. All rights reserved.</p>
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col items-center space-y-4">
+            <div className="flex items-center justify-center space-x-6">
+              <img 
+                src="https://www.mastercard.us/content/dam/public/mastercardcom/na/us/en/homepage/Home/mc-logo-52.svg" 
+                alt="Mastercard" 
+                className="h-8"
+              />
+              <img 
+                src="https://www.visa.com/images/merchantoffers/card-image-800x450.png" 
+                alt="Visa" 
+                className="h-8"
+              />
+              <img 
+                src="https://www.americanexpress.com/content/dam/amex/us/merchant/supplies-uplift/logos/American-Express-Logo-2018.png" 
+                alt="American Express" 
+                className="h-8"
+              />
+              <img 
+                src="https://www.discover.com/company/images/newsroom/media-downloads/discover.png" 
+                alt="Discover" 
+                className="h-8"
+              />
+              <img 
+                src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_111x69.jpg" 
+                alt="PayPal" 
+                className="h-8"
+              />
+            </div>
+            <p className="text-center">&copy; 2025 Shop Happy. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>
