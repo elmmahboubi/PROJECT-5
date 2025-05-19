@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { getProductBySlug } from '../api/products';
-import { ChevronLeft, ChevronRight, ShoppingCart, ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ShoppingCart, ChevronDown, ChevronUp, X } from 'lucide-react';
 
 const ProductPage = () => {
   const { slug } = useParams();
@@ -11,13 +11,14 @@ const ProductPage = () => {
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
   const [showFAQ, setShowFAQ] = useState(false);
+  const [showZoom, setShowZoom] = useState(false);
   
   useEffect(() => {
     const loadProduct = async () => {
       try {
         const data = await getProductBySlug(slug);
         if (data) {
-          console.log('Product loaded:', data); // Debug log
+          console.log('Product loaded:', data);
           setProduct(data);
         }
       } catch (error) {
@@ -29,6 +30,19 @@ const ProductPage = () => {
 
     loadProduct();
   }, [slug]);
+
+  useEffect(() => {
+    // Prevent scrolling when zoom modal is open
+    if (showZoom) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showZoom]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -61,11 +75,17 @@ const ProductPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Image Gallery */}
             <div className="relative">
-              <img 
-                src={images[activeImage]} 
-                alt={`${title} - Image ${activeImage + 1}`}
-                className="w-full h-[500px] object-cover rounded-lg"
-              />
+              <div 
+                onClick={() => setShowZoom(true)}
+                className="cursor-zoom-in relative group"
+              >
+                <img 
+                  src={images[activeImage]} 
+                  alt={`${title} - Image ${activeImage + 1}`}
+                  className="w-full h-[500px] object-cover rounded-lg"
+                />
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-200 rounded-lg"></div>
+              </div>
               {images.length > 1 && (
                 <>
                   <button
@@ -148,6 +168,47 @@ const ProductPage = () => {
         </div>
       </main>
       <Footer />
+
+      {/* Zoom Modal */}
+      {showZoom && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
+          <button
+            onClick={() => setShowZoom(false)}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors duration-200"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          <div className="relative w-full h-full flex items-center justify-center p-4">
+            <img
+              src={images[activeImage]}
+              alt={`${title} - Image ${activeImage + 1}`}
+              className="max-w-full max-h-full object-contain"
+            />
+            {images.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveImage((prev) => (prev > 0 ? prev - 1 : images.length - 1));
+                  }}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-3 rounded-full text-white transition-colors duration-200"
+                >
+                  <ChevronLeft className="h-8 w-8" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveImage((prev) => (prev < images.length - 1 ? prev + 1 : 0));
+                  }}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-3 rounded-full text-white transition-colors duration-200"
+                >
+                  <ChevronRight className="h-8 w-8" />
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
