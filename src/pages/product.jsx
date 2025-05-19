@@ -87,8 +87,8 @@ const ProductPage = () => {
       <main className="flex-grow bg-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Image Gallery */}
-            <div className="relative">
+            {/* Image Gallery - Fixed */}
+            <div className="relative lg:sticky lg:top-24 lg:self-start">
               <div 
                 onClick={() => setShowZoom(true)}
                 className="cursor-zoom-in relative group"
@@ -129,8 +129,8 @@ const ProductPage = () => {
               </div>
             </div>
             
-            {/* Product Info */}
-            <div>
+            {/* Product Info - Scrollable */}
+            <div className="lg:h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pr-4 scrollbar-hide">
               <h1 className="text-3xl font-medium text-gray-900">{title}</h1>
               <div className="mt-2 text-gray-600">{condition}</div>
               <div className="mt-4 text-4xl font-bold text-gray-900">
