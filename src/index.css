@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Human BBY Web";
+  font-family: "Gotham";
   src: url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.eot");
   src: url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.eot?#iefix")format("embedded-opentype"),
   url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.woff2")format("woff2"),
   url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.woff")format("woff"),
   url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.ttf")format("truetype"),
-  url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.svg#Human BBY Web")format("svg");
+  url("https://db.onlinewebfonts.com/t/f394894fe9d2c0473c80ab24dd9bcda5.svg#Gotham")format("svg");
 }
 
 @tailwind base;
@@ -14,11 +14,11 @@
 
 @layer base {
   html {
-    font-family: 'Human BBY Web', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Human BBY Web', sans-serif;
+    font-family: 'Gotham', sans-serif;
     font-weight: bold;
   }
 }
