@@ -11,7 +11,7 @@ const FeaturedProduct = ({ product }) => {
       <div className="flex flex-col lg:flex-row">
         {/* Image Section */}
         <div className="lg:w-1/2 relative overflow-hidden">
-          <div className="absolute top-4 left-4 z-10 bg-[#ff6a00] text-white text-sm font-medium px-3 py-1 rounded-full">
+          <div className="absolute top-4 left-4 z-10 bg-[#0046be] text-white text-sm font-medium px-3 py-1 rounded-full">
             <div className="flex items-center">
               <Award className="h-4 w-4 mr-1" />
               <span>Featured</span>
@@ -56,13 +56,13 @@ const FeaturedProduct = ({ product }) => {
           <div className="mt-8 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
             <button 
               onClick={() => navigate(`/product/${slug}`)}
-              className="flex-1 bg-[#ff6a00] hover:bg-[#e65f00] text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300"
+              className="flex-1 bg-[#0046be] hover:bg-[#003494] text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300"
             >
               Add to Cart
             </button>
             <Link 
               to={`/product/${slug}`}
-              className="flex-1 flex items-center justify-center border border-[#ff6a00] text-[#ff6a00] hover:bg-[#fff5eb] py-3 px-6 rounded-lg font-medium transition-colors duration-300"
+              className="flex-1 flex items-center justify-center border border-[#0046be] text-[#0046be] hover:bg-blue-50 py-3 px-6 rounded-lg font-medium transition-colors duration-300"
             >
               View Details
               <ArrowRight className="ml-2 h-5 w-5" />

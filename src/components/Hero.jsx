@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <div className="relative bg-gradient-to-r from-[#e65f00] to-[#ff6a00] overflow-hidden">
+    <div className="relative bg-gradient-to-r from-[#003494] to-[#0046be] overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 transform -skew-y-6 bg-white"></div>
@@ -22,13 +22,13 @@ const Hero = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Find Your Perfect Deal Today
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-orange-100 max-w-lg mx-auto md:mx-0">
+            <p className="mt-4 text-lg md:text-xl text-blue-100 max-w-lg mx-auto md:mx-0">
               Discover amazing deals on quality electronics and second-hand items. Shop smart, save more.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
               <a 
                 href="#products" 
-                className="px-8 py-3 bg-white text-[#ff6a00] font-medium rounded-lg shadow-md hover:bg-orange-50 transition duration-300 flex items-center justify-center"
+                className="px-8 py-3 bg-white text-[#0046be] font-medium rounded-lg shadow-md hover:bg-blue-50 transition duration-300 flex items-center justify-center"
               >
                 Shop Now
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -43,7 +43,7 @@ const Hero = () => {
           </div>
           <div className="md:w-1/2 relative">
             <div className="relative mx-auto w-full max-w-md">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#e65f00] to-[#ff6a00] rounded-2xl transform rotate-3 scale-105 opacity-50 blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#003494] to-[#0046be] rounded-2xl transform rotate-3 scale-105 opacity-50 blur-xl"></div>
               <img 
                 src="https://images.pexels.com/photos/1787235/pexels-photo-1787235.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
                 alt="Featured electronics" 
