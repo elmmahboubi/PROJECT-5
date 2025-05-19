@@ -129,7 +129,7 @@ const Footer = () => {
               <img 
                 src="https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/images/visa-brandmark-blue-1960x622.png" 
                 alt="Visa" 
-                className="h-8 brightness-0 invert"
+                className="h-3 brightness-0 invert"
               />
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/American_Express_logo_%282018%29.svg/2052px-American_Express_logo_%282018%29.svg.png" 
