@@ -6,13 +6,13 @@ const Footer = () => {
   return (
     <footer className="bg-[#313a4b] text-gray-300">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <img 
                 src="/logo.svg" 
-                alt="Shop Happy" 
+                alt="ShopHappy" 
                 className="w-40 brightness-0 invert"
               />
             </Link>
@@ -49,38 +49,13 @@ const Footer = () => {
                 <a href="#featured" className="hover:text-[#0046be] transition-colors duration-300">Featured Products</a>
               </li>
               <li>
-                <Link to="/policy" className="hover:text-[#0046be] transition-colors duration-300">Return Policy</Link>
+                <Link to="/return-policy" className="hover:text-[#0046be] transition-colors duration-300">Return Policy</Link>
               </li>
               <li>
-                <Link to="/policy" className="hover:text-[#0046be] transition-colors duration-300">Privacy Policy</Link>
+                <Link to="/privacy-policy" className="hover:text-[#0046be] transition-colors duration-300">Privacy Policy</Link>
               </li>
               <li>
-                <Link to="/policy" className="hover:text-[#0046be] transition-colors duration-300">Terms of Service</Link>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Categories */}
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Categories</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="hover:text-[#0046be] transition-colors duration-300">Electronics</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#0046be] transition-colors duration-300">Computers</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#0046be] transition-colors duration-300">Smartphones</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#0046be] transition-colors duration-300">Gaming</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#0046be] transition-colors duration-300">Accessories</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-[#0046be] transition-colors duration-300">Second Hand</a>
+                <Link to="/terms" className="hover:text-[#0046be] transition-colors duration-300">Terms of Service</Link>
               </li>
             </ul>
           </div>
@@ -95,7 +70,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 text-[#0046be] mr-2" />
-                <span>(123) 456-7890</span>
+                <span>(251) 261-5451</span>
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-[#0046be] mr-2" />
@@ -152,7 +127,7 @@ const Footer = () => {
                 className="h-8"
               />
             </div>
-            <p className="text-center">&copy; 2025 Shop Happy. All rights reserved.</p>
+            <p className="text-center">&copy; 2025 ShopHappy. All rights reserved.</p>
           </div>
         </div>
       </div>
