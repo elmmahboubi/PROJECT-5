@@ -102,7 +102,7 @@ const Reviews = ({ productSlug }) => {
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i}
-                      className={`h-5 w-5 ${i < Math.floor(averageRating) ? 'text-[#ff6a00] fill-[#ff6a00]' : 'text-gray-300'}`}
+                      className={`h-5 w-5 ${i < Math.floor(averageRating) ? 'text-[#0046be] fill-[#0046be]' : 'text-gray-300'}`}
                     />
                   ))}
                 </div>
@@ -118,7 +118,7 @@ const Reviews = ({ productSlug }) => {
                 <span className="text-sm text-gray-600 w-8">{rating}★</span>
                 <div className="flex-grow bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-[#ff6a00] rounded-full h-2" 
+                    className="bg-[#0046be] rounded-full h-2" 
                     style={{ width: `${percentage}%` }}
                   />
                 </div>
@@ -130,7 +130,7 @@ const Reviews = ({ productSlug }) => {
           {/* Write Review Button */}
           <button 
             onClick={() => setShowReviewForm(true)}
-            className="bg-[#ff6a00] hover:bg-[#e65f00] text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300"
+            className="bg-[#0046be] hover:bg-[#003494] text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300"
           >
             Write a Review
           </button>
@@ -142,7 +142,7 @@ const Reviews = ({ productSlug }) => {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+          className="border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#0046be]"
         >
           <option value="recent">Most Recent</option>
           <option value="helpful">Most Helpful</option>
@@ -167,7 +167,7 @@ const Reviews = ({ productSlug }) => {
                     <h3 className="font-medium text-gray-900 flex items-center gap-2">
                       {review.author}
                       {review.verified && (
-                        <span className="flex items-center text-[#ff6a00] text-sm">
+                        <span className="flex items-center text-[#0046be] text-sm">
                           <CheckCircle2 className="h-4 w-4 mr-1" />
                           Verified Purchase
                         </span>
@@ -184,7 +184,7 @@ const Reviews = ({ productSlug }) => {
                   {[...Array(5)].map((_, i) => (
                     <Star 
                       key={i}
-                      className={`h-5 w-5 ${i < review.rating ? 'text-[#ff6a00] fill-[#ff6a00]' : 'text-gray-300'}`}
+                      className={`h-5 w-5 ${i < review.rating ? 'text-[#0046be] fill-[#0046be]' : 'text-gray-300'}`}
                     />
                   ))}
                 </div>
@@ -193,11 +193,11 @@ const Reviews = ({ productSlug }) => {
                 <p className="mt-2 text-gray-600">{review.content}</p>
 
                 <div className="mt-4 flex items-center gap-4">
-                  <button className="flex items-center text-gray-500 hover:text-[#ff6a00] transition-colors duration-300">
+                  <button className="flex items-center text-gray-500 hover:text-[#0046be] transition-colors duration-300">
                     <ThumbsUp className="h-4 w-4 mr-1" />
                     <span>Helpful ({review.helpful})</span>
                   </button>
-                  <button className="flex items-center text-gray-500 hover:text-[#ff6a00] transition-colors duration-300">
+                  <button className="flex items-center text-gray-500 hover:text-[#0046be] transition-colors duration-300">
                     <MessageSquare className="h-4 w-4 mr-1" />
                     <span>Reply ({review.replies})</span>
                   </button>
@@ -216,7 +216,7 @@ const Reviews = ({ productSlug }) => {
               <h3 className="text-2xl font-bold text-gray-900">Write a Review</h3>
               <button 
                 onClick={() => setShowReviewForm(false)}
-                className="text-gray-500 hover:text-[#ff6a00] transition-colors duration-300"
+                className="text-gray-500 hover:text-[#0046be] transition-colors duration-300"
               >
                 <X className="h-6 w-6" />
               </button>
@@ -235,7 +235,7 @@ const Reviews = ({ productSlug }) => {
                       className="focus:outline-none"
                     >
                       <Star 
-                        className={`h-8 w-8 ${i < newReview.rating ? 'text-[#ff6a00] fill-[#ff6a00]' : 'text-gray-300'}`}
+                        className={`h-8 w-8 ${i < newReview.rating ? 'text-[#0046be] fill-[#0046be]' : 'text-gray-300'}`}
                       />
                     </button>
                   ))}
@@ -249,7 +249,7 @@ const Reviews = ({ productSlug }) => {
                   type="text"
                   value={newReview.title}
                   onChange={(e) => setNewReview({ ...newReview, title: e.target.value })}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0046be]"
                   required
                 />
               </div>
@@ -260,7 +260,7 @@ const Reviews = ({ productSlug }) => {
                 <textarea
                   value={newReview.content}
                   onChange={(e) => setNewReview({ ...newReview, content: e.target.value })}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#0046be]"
                   required
                 />
               </div>
@@ -273,7 +273,7 @@ const Reviews = ({ productSlug }) => {
                     type="text"
                     value={newReview.name}
                     onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0046be]"
                     required
                   />
                 </div>
@@ -283,7 +283,7 @@ const Reviews = ({ productSlug }) => {
                     type="email"
                     value={newReview.email}
                     onChange={(e) => setNewReview({ ...newReview, email: e.target.value })}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0046be]"
                     required
                   />
                 </div>
@@ -295,14 +295,14 @@ const Reviews = ({ productSlug }) => {
                   type="text"
                   value={newReview.location}
                   onChange={(e) => setNewReview({ ...newReview, location: e.target.value })}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0046be]"
                   required
                 />
               </div>
 
               <button 
                 type="submit"
-                className="w-full bg-[#ff6a00] hover:bg-[#e65f00] text-white py-3 rounded-lg font-medium transition-colors duration-300"
+                className="w-full bg-[#0046be] hover:bg-[#003494] text-white py-3 rounded-lg font-medium transition-colors duration-300"
               >
                 Submit Review
               </button>
