@@ -32,7 +32,6 @@ const ProductPage = () => {
   }, [slug]);
 
   useEffect(() => {
-    // Prevent scrolling when zoom modal is open
     if (showZoom) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -90,13 +89,13 @@ const ProductPage = () => {
                 <>
                   <button
                     onClick={() => setActiveImage((prev) => (prev > 0 ? prev - 1 : images.length - 1))}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-[#ff6a00] hover:text-white p-2 rounded-full transition-all duration-300"
                   >
                     <ChevronLeft className="h-6 w-6" />
                   </button>
                   <button
                     onClick={() => setActiveImage((prev) => (prev < images.length - 1 ? prev + 1 : 0))}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-[#ff6a00] hover:text-white p-2 rounded-full transition-all duration-300"
                   >
                     <ChevronRight className="h-6 w-6" />
                   </button>
@@ -128,7 +127,7 @@ const ProductPage = () => {
               </div>
               
               <div className="mt-8 space-y-4">
-                <button className="w-full bg-[#ff6a00] hover:bg-[#e65f00] text-white py-4 px-6 rounded-lg font-medium flex items-center justify-center">
+                <button className="w-full bg-[#ff6a00] hover:bg-[#e65f00] text-white py-4 px-6 rounded-lg font-medium flex items-center justify-center transition-colors duration-300">
                   <ShoppingCart className="h-5 w-5 mr-2" />
                   Add to Cart
                 </button>
@@ -138,7 +137,7 @@ const ProductPage = () => {
               <div className="mt-12 border-t pt-8">
                 <button
                   onClick={() => setShowFAQ(!showFAQ)}
-                  className="w-full flex items-center justify-between text-left"
+                  className="w-full flex items-center justify-between text-left text-[#ff6a00] hover:text-[#e65f00] transition-colors duration-300"
                 >
                   <span className="text-xl font-medium">Frequently Asked Questions</span>
                   {showFAQ ? (
@@ -176,7 +175,7 @@ const ProductPage = () => {
         <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
           <button
             onClick={() => setShowZoom(false)}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors duration-200"
+            className="absolute top-4 right-4 text-white hover:text-[#ff6a00] transition-colors duration-200"
           >
             <X className="h-8 w-8" />
           </button>
@@ -193,7 +192,7 @@ const ProductPage = () => {
                     e.stopPropagation();
                     setActiveImage((prev) => (prev > 0 ? prev - 1 : images.length - 1));
                   }}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-3 rounded-full text-white transition-colors duration-200"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-[#ff6a00] p-3 rounded-full text-white transition-colors duration-200"
                 >
                   <ChevronLeft className="h-8 w-8" />
                 </button>
@@ -202,7 +201,7 @@ const ProductPage = () => {
                     e.stopPropagation();
                     setActiveImage((prev) => (prev < images.length - 1 ? prev + 1 : 0));
                   }}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-white/20 p-3 rounded-full text-white transition-colors duration-200"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/10 hover:bg-[#ff6a00] p-3 rounded-full text-white transition-colors duration-200"
                 >
                   <ChevronRight className="h-8 w-8" />
                 </button>

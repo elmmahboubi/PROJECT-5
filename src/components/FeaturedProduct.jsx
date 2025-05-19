@@ -10,7 +10,7 @@ const FeaturedProduct = ({ product }) => {
       <div className="flex flex-col lg:flex-row">
         {/* Image Section */}
         <div className="lg:w-1/2 relative overflow-hidden">
-          <div className="absolute top-4 left-4 z-10 bg-indigo-600 text-white text-sm font-medium px-3 py-1 rounded-full">
+          <div className="absolute top-4 left-4 z-10 bg-[#ff6a00] text-white text-sm font-medium px-3 py-1 rounded-full">
             <div className="flex items-center">
               <Award className="h-4 w-4 mr-1" />
               <span>Featured</span>
@@ -56,7 +56,7 @@ const FeaturedProduct = ({ product }) => {
               <ul className="space-y-2">
                 {features && Array.isArray(features) ? features.slice(0, 4).map((feature, index) => (
                   <li key={index} className="flex items-start">
-                    <Check className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                    <Check className="h-5 w-5 text-[#ff6a00] mr-2 flex-shrink-0" />
                     <span className="text-gray-600">{feature}</span>
                   </li>
                 )) : null}
@@ -66,12 +66,12 @@ const FeaturedProduct = ({ product }) => {
           
           {/* Actions */}
           <div className="mt-8 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-            <button className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
+            <button className="flex-1 bg-[#ff6a00] hover:bg-[#e65f00] text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
               Add to Cart
             </button>
             <Link 
               to={`/product/${slug}`}
-              className="flex-1 flex items-center justify-center border border-indigo-600 text-indigo-600 hover:bg-indigo-50 py-3 px-6 rounded-lg font-medium transition-colors duration-300"
+              className="flex-1 flex items-center justify-center border border-[#ff6a00] text-[#ff6a00] hover:bg-[#fff5eb] py-3 px-6 rounded-lg font-medium transition-colors duration-300"
             >
               View Details
               <ArrowRight className="ml-2 h-5 w-5" />
