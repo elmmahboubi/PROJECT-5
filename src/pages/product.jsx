@@ -127,10 +127,31 @@ const ProductPage = () => {
                 <p className="text-gray-600">{description}</p>
               </div>
               
-              <button className="mt-8 w-full bg-[#ff6a00] hover:bg-[#e65f00] text-white py-4 px-6 rounded-lg font-medium flex items-center justify-center">
-                <ShoppingCart className="h-5 w-5 mr-2" />
-                Add to Cart
-              </button>
+              <div className="mt-8 space-y-4">
+                <button className="w-full bg-[#ff6a00] hover:bg-[#e65f00] text-white py-4 px-6 rounded-lg font-medium flex items-center justify-center">
+                  <ShoppingCart className="h-5 w-5 mr-2" />
+                  Add to Cart
+                </button>
+
+                {/* PayPal Buy Now Button */}
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" className="w-full">
+                  <input type="hidden" name="cmd" value="_xclick" />
+                  <input type="hidden" name="business" value="elmahboubimehdi@gmail.com" />
+                  <input type="hidden" name="lc" value="US" />
+                  <input type="hidden" name="item_name" value={title} />
+                  <input type="hidden" name="amount" value={price} />
+                  <input type="hidden" name="currency_code" value="USD" />
+                  <input type="hidden" name="button_subtype" value="products" />
+                  <input type="hidden" name="no_note" value="0" />
+                  <input type="hidden" name="tax_rate" value="0.00" />
+                  <input type="hidden" name="shipping" value="0.00" />
+                  <input
+                    type="submit"
+                    className="w-full bg-[#0070ba] hover:bg-[#003087] text-white py-4 px-6 rounded-lg font-medium cursor-pointer transition-colors duration-200"
+                    value="Buy Now with PayPal"
+                  />
+                </form>
+              </div>
               
               {/* FAQ Section */}
               <div className="mt-12 border-t pt-8">
