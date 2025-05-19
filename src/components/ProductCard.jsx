@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
           </div>
           <div className="mt-2 flex items-center justify-between">
             <span className="text-xl font-bold text-gray-900">${price.toLocaleString()}</span>
-            <span className="text-[#ff6a00] hover:text-[#e65f00] flex items-center">
+            <span className="text-[#0046be] hover:text-[#003494] flex items-center">
               View Details
               <ArrowRight className="h-4 w-4 ml-1" />
             </span>
