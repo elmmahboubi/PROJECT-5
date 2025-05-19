@@ -167,7 +167,7 @@ const ProductPage = () => {
                   <RefreshCw className="h-6 w-6 text-[#0046be] mt-1" />
                   <div className="ml-3">
                     <p className="text-sm font-medium text-gray-900">Returns:</p>
-                    <p className="text-sm text-gray-600">Not Accepted</p>
+                    <p className="text-sm text-gray-600">Accepted</p>
                   </div>
                 </div>
               </div>
