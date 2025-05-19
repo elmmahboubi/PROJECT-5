@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, ThumbsUp, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { Star, ThumbsUp, MessageSquare, CheckCircle2, X } from 'lucide-react';
 
 // Mock review data
 const reviewsData = [
@@ -49,6 +49,17 @@ const reviewsData = [
 
 const Reviews = ({ productSlug }) => {
   const [sortBy, setSortBy] = useState('recent');
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [newReview, setNewReview] = useState({
+    rating: 5,
+    title: '',
+    content: '',
+    name: '',
+    email: '',
+    location: ''
+  });
+  const [showSuccess, setShowSuccess] = useState(false);
+  
   const averageRating = 4.7;
   const totalReviews = reviewsData.length;
   const ratingDistribution = {
@@ -57,6 +68,23 @@ const Reviews = ({ productSlug }) => {
     3: 3,
     2: 1,
     1: 1
+  };
+
+  const handleSubmitReview = (e) => {
+    e.preventDefault();
+    setShowReviewForm(false);
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
+    setNewReview({
+      rating: 5,
+      title: '',
+      content: '',
+      name: '',
+      email: '',
+      location: ''
+    });
   };
 
   return (
@@ -100,7 +128,10 @@ const Reviews = ({ productSlug }) => {
           </div>
 
           {/* Write Review Button */}
-          <button className="bg-[#ff6a00] hover:bg-[#e65f00] text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300">
+          <button 
+            onClick={() => setShowReviewForm(true)}
+            className="bg-[#ff6a00] hover:bg-[#e65f00] text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300"
+          >
             Write a Review
           </button>
         </div>
@@ -177,12 +208,115 @@ const Reviews = ({ productSlug }) => {
         ))}
       </div>
 
-      {/* Load More */}
-      <div className="p-6 text-center">
-        <button className="px-6 py-2 border border-[#ff6a00] text-[#ff6a00] rounded-lg hover:bg-[#fff5eb] font-medium transition-colors duration-300">
-          Load More Reviews
-        </button>
-      </div>
+      {/* Review Form Modal */}
+      {showReviewForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-900">Write a Review</h3>
+              <button 
+                onClick={() => setShowReviewForm(false)}
+                className="text-gray-500 hover:text-[#ff6a00] transition-colors duration-300"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+            
+            <form onSubmit={handleSubmitReview}>
+              {/* Rating */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-medium mb-2">Rating</label>
+                <div className="flex gap-2">
+                  {[...Array(5)].map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setNewReview({ ...newReview, rating: i + 1 })}
+                      className="focus:outline-none"
+                    >
+                      <Star 
+                        className={`h-8 w-8 ${i < newReview.rating ? 'text-[#ff6a00] fill-[#ff6a00]' : 'text-gray-300'}`}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Review Title */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-medium mb-2">Review Title</label>
+                <input
+                  type="text"
+                  value={newReview.title}
+                  onChange={(e) => setNewReview({ ...newReview, title: e.target.value })}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                  required
+                />
+              </div>
+
+              {/* Review Content */}
+              <div className="mb-6">
+                <label className="block text-gray-700 font-medium mb-2">Your Review</label>
+                <textarea
+                  value={newReview.content}
+                  onChange={(e) => setNewReview({ ...newReview, content: e.target.value })}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                  required
+                />
+              </div>
+
+              {/* Personal Info */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Name</label>
+                  <input
+                    type="text"
+                    value={newReview.name}
+                    onChange={(e) => setNewReview({ ...newReview, name: e.target.value })}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Email</label>
+                  <input
+                    type="email"
+                    value={newReview.email}
+                    onChange={(e) => setNewReview({ ...newReview, email: e.target.value })}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <label className="block text-gray-700 font-medium mb-2">Location</label>
+                <input
+                  type="text"
+                  value={newReview.location}
+                  onChange={(e) => setNewReview({ ...newReview, location: e.target.value })}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#ff6a00]"
+                  required
+                />
+              </div>
+
+              <button 
+                type="submit"
+                className="w-full bg-[#ff6a00] hover:bg-[#e65f00] text-white py-3 rounded-lg font-medium transition-colors duration-300"
+              >
+                Submit Review
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Success Message */}
+      {showSuccess && (
+        <div className="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg">
+          Your review has been submitted successfully!
+        </div>
+      )}
     </div>
   );
 };
